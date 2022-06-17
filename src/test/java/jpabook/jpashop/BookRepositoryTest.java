@@ -19,6 +19,7 @@ public class BookRepositoryTest {
 
     @Test
     @Transactional
+    @Rollback(value = false)
     public void bookTest(){
         Book book = new Book();
         book.setBookname("토끼와 거북이");
