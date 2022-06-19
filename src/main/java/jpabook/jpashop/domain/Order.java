@@ -17,7 +17,7 @@ public class Order {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_id")
+    @JoinColumn(name = "member_id") //foreign key 설정
     private Member member;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
