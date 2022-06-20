@@ -32,7 +32,7 @@ public class MemberRepository {
 
     public List<Member> findByName(String name) {
         return em.createQuery("select m from Member m where m.name = :name", Member.class)
-                .setParameter("nane", name) //parameter 바인딩 해서 특정 이름만 찾아오기
+                .setParameter("name", name) //parameter 바인딩 해서 특정 이름만 찾아오기
                 .getResultList();
     }
 
