@@ -5,7 +5,6 @@ import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.domain.Order;
 import jpabook.jpashop.domain.OrderStatus;
 import jpabook.jpashop.domain.item.Book;
-import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.exception.NotEnoughStockException;
 import jpabook.jpashop.repository.OrderRepository;
 import org.assertj.core.api.Assertions;
@@ -39,7 +38,7 @@ public class OrderServiceTest {
         //given
         Member member = createMember();
 
-        Book book = createBook("시골 JPA", 10000, 10);
+        Book book = createBook();
 
 
         //when
@@ -62,16 +61,12 @@ public class OrderServiceTest {
     public void 상품주문_재고수량초과() throws Exception {
         //given
         Member member = createMember();
-        Item item = createBook("시골 JPA", 10000, 10);
-
-        int orderCount =11 ;
+        Book book = createBook();
 
         //when
-        orderService.order(member.getId(), item.getId(), orderCount);
-
 
         //then
-        fail();
+
 
 
     }
@@ -81,22 +76,21 @@ public class OrderServiceTest {
 
         //given
 
-        Member member = createMember();
-        Book item = createBook("시골 JPA", 10000, 10);
-
-
-        int orderCount = 2;
-        Long orderId = orderService.order(member.getId(), item.getId(), orderCount);
         //when
-        orderService.cancelOrder(orderId);
-
 
         //then
-        Order getOrder = orderRepository.findOne(orderId);
-        assertThat(getOrder.getStatus()).isEqualTo(OrderStatus.CENCEL);
-        assertThat(item.getStockQuantity()).isEqualTo(10);
+
     }
 
+    @Test
+    public void 상품주문_재고수량초과() throws Exception {
+        //given
+
+        //when
+
+        //then
+
+    }
 
 
 
