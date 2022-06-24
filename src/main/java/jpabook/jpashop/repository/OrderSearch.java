@@ -10,5 +10,6 @@ public class OrderSearch {
     private OrderStatus orderStatus;
 
     public CharSequence getMemberName() {
+        return null;
     }
 }

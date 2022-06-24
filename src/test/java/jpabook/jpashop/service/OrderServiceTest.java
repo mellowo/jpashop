@@ -38,7 +38,7 @@ public class OrderServiceTest {
         //given
         Member member = createMember();
 
-        Book book = createBook();
+        Book book = createBook("시골 JPA",10000,10);
 
 
         //when
@@ -61,7 +61,7 @@ public class OrderServiceTest {
     public void 상품주문_재고수량초과() throws Exception {
         //given
         Member member = createMember();
-        Book book = createBook();
+        Book book = createBook("시골 JPA",10000,10);
 
         //when
 
@@ -82,15 +82,7 @@ public class OrderServiceTest {
 
     }
 
-    @Test
-    public void 상품주문_재고수량초과() throws Exception {
-        //given
 
-        //when
-
-        //then
-
-    }
 
 
 
