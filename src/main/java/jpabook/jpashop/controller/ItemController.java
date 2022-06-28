@@ -67,16 +67,8 @@ public class ItemController {
     }
 
     @PostMapping("items/{itemId}/edit")
-    public String updateItem(@PathVariable String itemId, @ModelAttribute("form") BookForm form) { //@ModelAttribute -> th:object에서 받아온 객체를 그대로 가져옴?
-        Book book = new Book();
-        book.setId(form.getId());
-        book.setName(form.getName());
-        book.setPrice(form.getPrice());
-        book.setStockQuantity(form.getStockQuantity());
-        book.setAuthor(form.getAuthor());
-        book.setIsbn(form.getIsbn());
-
-        itemService.saveItem(book);
+    public String updateItem(@PathVariable Long itemId, @ModelAttribute("form") BookForm form) { //@ModelAttribute -> th:object에서 받아온 객체를 그대로 가져옴?
+        itemService.updateItem(itemId,form.getName(),form.getPrice(),form.getStockQuantity());
         return "redirect:/items";
     }
 }
